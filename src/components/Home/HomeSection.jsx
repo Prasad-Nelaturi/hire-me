@@ -10,10 +10,6 @@ import {
   Terminal,
   Wind,
   Database,
-  X,
-  ExternalLink,
-  ChevronLeft,
-  ChevronRight,
   Sparkles,
   Briefcase,
   ArrowUpRight,
@@ -134,7 +130,7 @@ export default function HeroSection() {
       duration: 1000,
       once: false,
     });
-  }, []);
+  }, [images]);
 
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -894,7 +890,7 @@ As a full-stack developer for this project, I built a complete, responsive websi
             <span>
               <img
                 src="./images/hero1.jpg"
-                alt=""
+                alt="Prasad Nelaturi - Hero"
                 className="w-[14vw] h-[12vh] object-cover rounded-[40px] mx-3"
               />
             </span>
@@ -920,7 +916,7 @@ As a full-stack developer for this project, I built a complete, responsive websi
             <span>
               <img
                 src="./images/hero2.jpg"
-                alt=""
+                alt="Full Stack Developer illustration"
                 className="w-[14vw] h-[12vh] object-cover rounded-[40px] mx-3"
               />
             </span>
@@ -1020,6 +1016,7 @@ As a full-stack developer for this project, I built a complete, responsive websi
                     <img
                       key={index}
                       src={img}
+                      alt={`Project showcase ${index + 1}`}
                       className={`
             absolute inset-0 w-full h-full object-cover object-left rounded-[120px]
             transition-opacity duration-700
