@@ -120,6 +120,13 @@ export default function HeroSection() {
   const [moduleIndex, setModuleIndex] = useState(0);
   const [selectedProject, setSelectedProject] = useState(null);
 
+  const images = [
+    "./images/pr1.png",
+    "./images/pr2.png",
+    "./images/pr3.png",
+    "./images/pr4.png",
+  ];
+
   useEffect(() => {
     images.forEach((_, i) => {
       setTimeout(() => {
@@ -133,13 +140,6 @@ export default function HeroSection() {
   }, [images]);
 
   const [activeIndex, setActiveIndex] = useState(0);
-
-  const images = [
-    "./images/pr1.png",
-    "./images/pr2.png",
-    "./images/pr3.png",
-    "./images/pr4.png",
-  ];
 
   const [formData, setFormData] = useState({
     name: "",
