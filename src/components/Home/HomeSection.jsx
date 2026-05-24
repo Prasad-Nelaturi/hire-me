@@ -1276,128 +1276,179 @@ As a full-stack developer for this project, I built a complete, responsive websi
       `}</style>
         </section>
 
-        <section id="tools" className="relative py-28">
-          {/* Headings */}
-          <p
-            className="text-center text-[#ff8a0c] font-bold m-0 
-  text-xl sm:text-2xl md:text-3xl lg:text-4xl"
-          >
-            Tools+
-          </p>
+        <section id="tools" className="relative py-28 overflow-hidden">
+          {/* Heading */}
+          <div className="relative z-20 text-center px-4">
+            <p className="text-[#ff8a0c] font-bold text-3xl md:text-5xl">
+              Tools+
+            </p>
 
-          <h2
-            className="text-center text-white m-0 
-  text-xl sm:text-lg md:text-xl lg:text-2xl p-6"
-          >
-            Essential tools and platforms I use to streamline development and
-            bring ideas to life.
-          </h2>
+            <h2 className="text-gray-300 mt-4 text-sm md:text-xl max-w-3xl mx-auto">
+              Essential tools and platforms I use to streamline development and
+              bring ideas to life.
+            </h2>
+          </div>
 
-          {/* Blurred Circle Background */}
+          {/* Background Blur */}
           <div
             className="
-          absolute z-0 
-          w-[300px] h-[300px] sm:w-[350px] sm:h-[350px] md:w-[400px] md:h-[400px]
-          bg-[#998ef83d] rounded-full blur-[50px]
-          top-[15%] left-[40%] sm:left-[45%]
-        "
-          ></div>
+      absolute top-1/2 left-1/2
+      -translate-x-1/2 -translate-y-1/2
+      w-[400px] h-[400px]
+      bg-violet-500/20
+      rounded-full blur-[120px]
+      z-0
+    "
+          />
 
-          {/* vertical text button */}
+          {/* MAIL Vertical Button */}
           <a
             href="mailto:prasadnelaturi333@gmail.com"
             className="
-   absolute z-10 border border-white rounded-[50px]
-    top-[15%] left-[5%]
-    flex items-center justify-center
-    cursor-pointer select-none
-    px-4 py-2
-    w-fit h-fit
-    text-white 
-      hover:text-violet-600
-  "
-          >
-            <span
-              className="
-      text-[10px] leading-[12px]     /* mobile */
-      sm:text-[13px] sm:leading-[15px] /* tablet */
-      md:text-[15px] md:leading-[17px] /* desktop */
-      font-semibold 
-      flex flex-col items-center
+      absolute left-5 top-[30%] z-30
+      border border-white/20
+      bg-white/5 backdrop-blur-xl
+      rounded-full
+      px-3 py-5
+      hover:border-violet-500
+      transition duration-300
+      hidden md:flex
     "
-            >
+          >
+            <span className="text-white font-semibold text-xs flex flex-col items-center">
               {"MAIL".split("").map((letter, i) => (
                 <span key={i}>{letter}</span>
               ))}
             </span>
           </a>
 
-          <div
+          {/* WhatsApp */}
+          <a
+            href="https://wa.me/919652593606"
+            target="_blank"
+            rel="noopener noreferrer"
             className="
-          absolute z-10 rounded-[50px]
-          w-[20px] h-[20px] sm:w-[30px] sm:h-[30px]
-          top-[20%] right-[15%] sm:right-[20%]
-        "
+      absolute right-8 top-[25%]
+      z-30 hidden md:flex
+      text-white hover:text-violet-500
+      transition
+    "
           >
-            <a
-              href="https://wa.me/919652593606"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-gray-300"
-            >
-              <i className="bi bi-whatsapp text-3xl hover:text-violet-600"></i>
-            </a>
-          </div>
-          <div className="mt-5 p-3">
-            {/* Row 1 */}
-            <div className="flex items-center justify-between gap-4 flex-wrap">
-              <img
-                src="./images/vscode.webp"
-                className="w-[18vw] sm:w-[14vw] md:w-[10vw] h-[12vw] sm:h-[10vw] md:h-[8vw] object-contain filter invert"
-                alt="VS Code"
-              />
+            <i className="bi bi-whatsapp text-4xl"></i>
+          </a>
 
-              <img
-                src="./images/swagger.svg"
-                className="w-[18vw] sm:w-[14vw] md:w-[10vw] h-[12vw] sm:h-[10vw] md:h-[8vw] object-contain filter invert"
-                alt="Swagger"
-              />
-
-              <img
-                src="./images/mongo.png"
-                className="w-[18vw] sm:w-[14vw] md:w-[10vw] h-[12vw] sm:h-[10vw] md:h-[8vw] object-contain filter invert"
-                alt="VS Code"
-              />
-
-              <img
-                src="./images/eclipse.png"
-                className="w-[18vw] sm:w-[14vw] md:w-[10vw] h-[12vw] sm:h-[10vw] md:h-[8vw] object-contain filter invert"
-                alt="Eclipse IDE"
-              />
-
-              <img
-                src="./images/sts.png"
-                className="w-[18vw] sm:w-[14vw] md:w-[10vw] h-[12vw] sm:h-[10vw] md:h-[8vw] object-contain filter invert"
-                alt="Spring Tool Suite"
-              />
-
-              <img
-                src="./images/postman.png"
-                className="w-[18vw] sm:w-[14vw] md:w-[10vw] h-[12vw] sm:h-[10vw] md:h-[8vw] object-contain filter invert"
-                alt="Postman"
-              />
-
-              <img
-                src="./images/robo3t.png"
-                className="w-[18vw] sm:w-[14vw] md:w-[10vw] h-[12vw] sm:h-[10vw] md:h-[8vw] object-contain filter invert"
-                alt="Robo 3T"
-              />
-
-              <img
-                src="./images/sourcetree.webp"
-                className="w-[18vw] sm:w-[14vw] md:w-[10vw] h-[12vw] sm:h-[10vw] md:h-[8vw] object-contain filter invert"
-                alt="SourceTree"
-              />
+          {/* Infinite Scroll */}
+          <div className="relative mt-20 overflow-hidden">
+            <div className="flex marquee whitespace-nowrap py-2">
+              {[
+                {
+                  img: "./images/vscode.webp",
+                  name: "VS Code",
+                },
+                {
+                  img: "./images/swagger.svg",
+                  name: "Swagger",
+                },
+                {
+                  img: "./images/mongo.png",
+                  name: "MongoDB",
+                },
+                {
+                  img: "./images/eclipse.png",
+                  name: "Eclipse",
+                },
+                {
+                  img: "./images/git.png",
+                  name: "Git",
+                },
+                {
+                  img: "./images/sts.png",
+                  name: "Spring Tool Suite",
+                },
+                {
+                  img: "./images/postman.png",
+                  name: "Postman",
+                },
+                {
+                  img: "./images/robo3t.png",
+                  name: "Robo 3T",
+                },
+                {
+                  img: "./images/sourcetree.webp",
+                  name: "SourceTree",
+                },
+              ]
+                .concat([
+                  {
+                    img: "./images/vscode.webp",
+                    name: "VS Code",
+                  },
+                  {
+                    img: "./images/swagger.svg",
+                    name: "Swagger",
+                  },
+                  {
+                    img: "./images/mongo.png",
+                    name: "MongoDB",
+                  },
+                  {
+                    img: "./images/eclipse.png",
+                    name: "Eclipse",
+                  },
+                  {
+                    img: "./images/git.png",
+                    name: "Git",
+                  },
+                  {
+                    img: "./images/sts.png",
+                    name: "Spring Tool Suite",
+                  },
+                  {
+                    img: "./images/postman.png",
+                    name: "Postman",
+                  },
+                  {
+                    img: "./images/robo3t.png",
+                    name: "Robo 3T",
+                  },
+                  {
+                    img: "./images/sourcetree.webp",
+                    name: "SourceTree",
+                  },
+                ])
+                .map((tool, index) => (
+                  <div
+                    key={index}
+                    className="
+              min-w-[120px]
+              h-[120px]
+              mx-4
+              rounded-3xl
+              border border-white/10
+              bg-white/90
+              backdrop-blur-xl
+              flex flex-col items-center justify-center
+              group
+              transition-all duration-500
+              hover:scale-105
+              hover:border-violet-500/40
+              hover:bg-white/10
+              cursor-pointer
+            "
+                  >
+                    <img
+                      src={tool.img}
+                      alt={tool.name}
+                      className="
+                w-20 h-20 object-contain
+                filter 
+                transition duration-500
+                group-hover:scale-110
+                group-hover:invert
+              "
+                    />
+                  </div>
+                ))}
             </div>
           </div>
         </section>
@@ -1412,7 +1463,7 @@ As a full-stack developer for this project, I built a complete, responsive websi
               </h2>
 
               {/* <!-- Card 1 --> */}
-              <div className="bg-orange-100 hover:bg-orange-200 transition-all duration-300 ease-in-out rounded-3xl p-8 shadow-[0_6px_0_#f97316,0_8px_20px_rgba(249,115,22,0.35)] hover:-translate-y-1 hover:shadow-[0_4px_0_#c2410c,0_12px_25px_rgba(249,115,22,0.45)] active:translate-y-0.5 active:shadow-[0_2px_0_#9a3412,0_6px_12px_rgba(249,115,22,0.25)]">
+              <div className="bg-orange-100 hover:bg-orange-200 transition-all duration-300 ease-in-out rounded-3xl p-8 shadow-[0_6px_0_#f97316,0_8px_20px_rgba(249,115,22,0.35)] hover:-translate-y-1 hover:shadow-[0_4px_0_#c2410c,0_10px_20px_rgba(0,0,0,0.2)] active:translate-y-0.5 active:shadow-[0_2px_0_#9a3412,0_6px_12px_rgba(249,115,22,0.25)]">
                 {" "}
                 <div>
                   <div className="w-full overflow-hidden">
@@ -1440,7 +1491,7 @@ As a full-stack developer for this project, I built a complete, responsive websi
             </div>
             <div>
               {/* <!-- Card 2 --> */}
-              <div className="bg-blue-100 hover:bg-blue-300 transition-all duration-300 ease-in-out rounded-3xl p-8 mb-6 shadow-[0_6px_0_#3b82f6,0_8px_15px_rgba(0,0,0,0.15)] hover:-translate-y-1 hover:shadow-[0_4px_0_#2563eb,0_10px_20px_rgba(0,0,0,0.2)] active:translate-y-0.5 active:shadow-[0_2px_0_#1d4ed8,0_6px_10px_rgba(0,0,0,0.1)]">
+              <div className="bg-blue-100 hover:bg-blue-300 transition-all duration-300 ease-in-out rounded-3xl p-8 mb-6 shadow-[0_6px_0_#3b82f6,0_8px_15px_rgba(0,0,0,0.15)] hover:-translate-y-1 hover:shadow-[0_4px_0_#3b82f6,0_10px_20px_rgba(0,0,0,0.2)] active:translate-y-0.5 active:shadow-[0_2px_0_#1d4ed8,0_6px_10px_rgba(0,0,0,0.1)]">
                 <div className="w-full overflow-hidden">
                   <img
                     src="./images/aryagami-cloud.png"
@@ -1465,9 +1516,9 @@ As a full-stack developer for this project, I built a complete, responsive websi
               </div>
 
               {/* <!-- Card 3 --> */}
-              <div className="bg-violet-300 hover:bg-violet-400 transition-all duration-300 ease-in-out rounded-3xl p-8 shadow-[0_6px_0_#9ca3af,0_8px_15px_rgba(0,0,0,0.15)] hover:-translate-y-1 hover:shadow-[0_4px_0_#6b7280,0_10px_20px_rgba(0,0,0,0.2)] active:translate-y-0.5 active:shadow-[0_2px_0_#4b5563,0_6px_10px_rgba(0,0,0,0.1)]">
+              <div className="bg-violet-300 hover:bg-violet-400 transition-all duration-300 ease-in-out rounded-3xl p-8 shadow-[0_6px_0_#8236f3,0_8px_15px_rgba(0,0,0,0.15)] hover:-translate-y-1 hover:shadow-[0_4px_0_#8236f3,0_10px_20px_rgba(0,0,0,0.2)] active:translate-y-0.5 active:shadow-[0_2px_0_#4b5563,0_6px_10px_rgba(0,0,0,0.1)]">
                 <h3 className="text-3xl font-semibold text-violet-600 mb-2">
-                  … get the chance !
+                  ..get the chance !
                 </h3>
                 <a
                   href="mailto:prasadnelaturi333@gmail.com"
@@ -1480,7 +1531,10 @@ As a full-stack developer for this project, I built a complete, responsive websi
           </div>
         </section>
 
-        <section className="relative min-h-screen py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <section
+          id="projects"
+          className="relative min-h-screen py-24 px-4 sm:px-6 lg:px-8 overflow-hidden"
+        >
           {/* Animated Background Elements */}
           <div className="absolute inset-0 overflow-hidden">
             <div className="absolute w-[500px] h-[500px] bg-purple-600/20 rounded-full blur-3xl -top-1 -left-1/2 animate-pulse"></div>
@@ -1586,196 +1640,195 @@ As a full-stack developer for this project, I built a complete, responsive websi
               ))}
             </div>
           </div>
-{/* Modern Responsive Modal */}
-<AnimatePresence>
-  {selectedProject && (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="fixed inset-0 z-[999] bg-black/70 backdrop-blur-md flex items-center justify-center p-3 sm:p-5"
-    >
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9, y: 40 }}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
-        exit={{ opacity: 0, scale: 0.95, y: 20 }}
-        transition={{ duration: 0.3 }}
-        className="relative bg-white rounded-2xl shadow-2xl w-full max-w-5xl 
+          {/* Modern Responsive Modal */}
+          <AnimatePresence>
+            {selectedProject && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="fixed inset-0 z-[999] bg-black/70 backdrop-blur-md flex items-center justify-center p-3 sm:p-5"
+              >
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9, y: 40 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.95, y: 20 }}
+                  transition={{ duration: 0.3 }}
+                  className="relative bg-white rounded-2xl shadow-2xl w-full max-w-5xl 
         max-h-[80vh] overflow-hidden flex flex-col"
-      >
-        {/* Close Button */}
-        <button
-          onClick={() => setSelectedProject(null)}
-          className="absolute top-4 right-4 z-50 w-11 h-11 rounded-full 
+                >
+                  {/* Close Button */}
+                  <button
+                    onClick={() => setSelectedProject(null)}
+                    className="absolute top-4 right-4 z-50 w-11 h-11 rounded-full 
           bg-white/90 backdrop-blur-md shadow-md flex items-center justify-center
           text-gray-700 hover:bg-red-500 hover:text-white transition-all duration-300"
-        >
-          ✕
-        </button>
-
-        {/* Scrollable Content */}
-        <div className="overflow-y-auto">
-          {/* Hero Image */}
-          <div className="relative">
-            <img
-              src={selectedProject.image}
-              alt={selectedProject.title}
-              className="w-full h-[220px] sm:h-[320px] lg:h-[380px] object-cover"
-            />
-
-            {/* Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-
-            {/* Title Overlay */}
-            <div className="absolute bottom-6 left-6 right-6 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
-              <div>
-                <span className="bg-[#ff8a0c]/20 text-[#ff8a0c] border border-[#ff8a0c]
-                px-4 py-1 rounded-full text-xs font-semibold">
-                  Featured Project
-                </span>
-
-                <h2 className="text-2xl sm:text-3xl font-bold text-white mt-3">
-                  {selectedProject.title}
-                </h2>
-              </div>
-
-              {/* Website Button */}
-              {selectedProject.website && (
-                <a
-                  href={selectedProject.website}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 px-5 py-3 
-                  rounded-full bg-[#ff8a0c] text-white font-semibold
-                  hover:scale-105 hover:shadow-xl transition-all duration-300 w-fit"
-                >
-                  🔗 Visit Website
-                </a>
-              )}
-            </div>
-          </div>
-
-          {/* Content */}
-          <div className="p-5 sm:p-8 lg:p-10">
-            {/* Description */}
-            <div className="bg-gray-50 border border-gray-200 rounded-3xl p-5 sm:p-6">
-              <h3 className="text-xl font-bold mb-3 text-gray-900">
-                Project Overview
-              </h3>
-
-              <p className="text-gray-600 leading-8 text-[15px] whitespace-pre-line">
-                {selectedProject.details.description}
-              </p>
-            </div>
-
-            {/* Features */}
-            <div className="mt-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-5">
-                Key Features
-              </h3>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {selectedProject.details.features.map((feature, i) => (
-                  <div
-                    key={i}
-                    className="flex items-start gap-3 bg-orange-50 border border-orange-100 rounded-2xl p-1 md:p-2 hover:shadow-md transition-all"
                   >
-                    <div className="min-w-[30px] h-[30px] rounded-full bg-[#ff8a0c] text-white flex items-center justify-center text-sm font-bold">
-                      ✓
-                    </div>
+                    ✕
+                  </button>
 
-                    <p className="text-gray-700 text-sm leading-6">
-                      {feature}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
+                  {/* Scrollable Content */}
+                  <div className="overflow-y-auto">
+                    {/* Hero Image */}
+                    <div className="relative">
+                      <img
+                        src={selectedProject.image}
+                        alt={selectedProject.title}
+                        className="w-full h-[220px] sm:h-[320px] lg:h-[380px] object-cover"
+                      />
 
-            {/* Modules */}
-            {selectedProject.details.modules && (
-              <div className="mt-10">
-                <div className="flex flex-row items-center justify-between gap-3 mb-5">
-                  <h3 className="text-2xl font-bold text-gray-900">
-                    Modules
-                  </h3>
+                      {/* Gradient Overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
-                  <span className="bg-orange-100 text-[#ff8a0c] px-4 py-2 rounded-full text-sm font-semibold w-fit">
-                    {moduleIndex + 1} /{" "}
-                    {selectedProject.details.modules.length}
-                  </span>
-                </div>
+                      {/* Title Overlay */}
+                      <div className="absolute bottom-6 left-6 right-6 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+                        <div>
+                          <span
+                            className="bg-[#ff8a0c]/20 text-[#ff8a0c] border border-[#ff8a0c]
+                px-4 py-1 rounded-full text-xs font-semibold"
+                          >
+                            Featured Project
+                          </span>
 
-                {/* Module Card */}
-                <div className="bg-white border border-gray-200 rounded-[28px] p-4 md:p-6 shadow-sm">
-                  <h4 className="text-2xl font-bold text-[#ff8a0c] mb-4">
-                    {selectedProject.details.modules[moduleIndex].name}
-                  </h4>
-
-                  <div className="space-y-4">
-                    {selectedProject.details.modules[
-                      moduleIndex
-                    ].points.map((point, i) => (
-                      <div
-                        key={i}
-                        className="flex gap-3 items-start"
-                      >
-                        <div className="min-w-[26px] h-[26px] rounded-full bg-[#ff8a0c] text-white flex items-center justify-center text-xs">
-                          ✓
+                          <h2 className="text-2xl sm:text-3xl font-bold text-white mt-3">
+                            {selectedProject.title}
+                          </h2>
                         </div>
 
-                        <p className="text-gray-600 leading-7 text-sm">
-                          {point}
+                        {/* Website Button */}
+                        {selectedProject.website && (
+                          <a
+                            href={selectedProject.website}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center justify-center gap-2 px-5 py-3 
+                  rounded-full bg-[#ff8a0c] text-white font-semibold
+                  hover:scale-105 hover:shadow-xl transition-all duration-300 w-fit"
+                          >
+                            🔗 Visit Website
+                          </a>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Content */}
+                    <div className="p-5 sm:p-8 lg:p-10">
+                      {/* Description */}
+                      <div className="bg-gray-50 border border-gray-200 rounded-3xl p-5 sm:p-6">
+                        <h3 className="text-xl font-bold mb-3 text-gray-900">
+                          Project Overview
+                        </h3>
+
+                        <p className="text-gray-600 leading-8 text-[15px] whitespace-pre-line">
+                          {selectedProject.details.description}
                         </p>
                       </div>
-                    ))}
-                  </div>
-                </div>
 
-                {/* Navigation */}
-                <div className="flex items-center justify-between gap-4 mt-8">
-                  <button
-                    disabled={moduleIndex === 0}
-                    onClick={() =>
-                      setModuleIndex(moduleIndex - 1)
-                    }
-                    className={`px-5 py-3 rounded-full font-semibold transition-all
+                      {/* Features */}
+                      <div className="mt-8">
+                        <h3 className="text-2xl font-bold text-gray-900 mb-5">
+                          Key Features
+                        </h3>
+
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                          {selectedProject.details.features.map(
+                            (feature, i) => (
+                              <div
+                                key={i}
+                                className="flex items-start gap-3 bg-orange-50 border border-orange-100 rounded-2xl p-1 md:p-2 hover:shadow-md transition-all"
+                              >
+                                <div className="min-w-[30px] h-[30px] rounded-full bg-[#ff8a0c] text-white flex items-center justify-center text-sm font-bold">
+                                  ✓
+                                </div>
+
+                                <p className="text-gray-700 text-sm leading-6">
+                                  {feature}
+                                </p>
+                              </div>
+                            ),
+                          )}
+                        </div>
+                      </div>
+
+                      {/* Modules */}
+                      {selectedProject.details.modules && (
+                        <div className="mt-10">
+                          <div className="flex flex-row items-center justify-between gap-3 mb-5">
+                            <h3 className="text-2xl font-bold text-gray-900">
+                              Modules
+                            </h3>
+
+                            <span className="bg-orange-100 text-[#ff8a0c] px-4 py-2 rounded-full text-sm font-semibold w-fit">
+                              {moduleIndex + 1} /{" "}
+                              {selectedProject.details.modules.length}
+                            </span>
+                          </div>
+
+                          {/* Module Card */}
+                          <div className="bg-white border border-gray-200 rounded-[28px] p-4 md:p-6 shadow-sm">
+                            <h4 className="text-2xl font-bold text-[#ff8a0c] mb-4">
+                              {
+                                selectedProject.details.modules[moduleIndex]
+                                  .name
+                              }
+                            </h4>
+
+                            <div className="space-y-4">
+                              {selectedProject.details.modules[
+                                moduleIndex
+                              ].points.map((point, i) => (
+                                <div key={i} className="flex gap-3 items-start">
+                                  <div className="min-w-[26px] h-[26px] rounded-full bg-[#ff8a0c] text-white flex items-center justify-center text-xs">
+                                    ✓
+                                  </div>
+
+                                  <p className="text-gray-600 leading-7 text-sm">
+                                    {point}
+                                  </p>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+
+                          {/* Navigation */}
+                          <div className="flex items-center justify-between gap-4 mt-8">
+                            <button
+                              disabled={moduleIndex === 0}
+                              onClick={() => setModuleIndex(moduleIndex - 1)}
+                              className={`px-5 py-3 rounded-full font-semibold transition-all
                     ${
                       moduleIndex === 0
                         ? "bg-gray-100 text-gray-400 cursor-not-allowed"
                         : "bg-gray-900 text-white hover:scale-105"
                     }`}
-                  >
-                    ← Previous
-                  </button>
+                            >
+                              ← Previous
+                            </button>
 
-                  <button
-                    disabled={
-                      moduleIndex ===
-                      selectedProject.details.modules.length - 1
-                    }
-                    onClick={() =>
-                      setModuleIndex(moduleIndex + 1)
-                    }
-                    className={`px-5 py-3 rounded-full font-semibold transition-all
+                            <button
+                              disabled={
+                                moduleIndex ===
+                                selectedProject.details.modules.length - 1
+                              }
+                              onClick={() => setModuleIndex(moduleIndex + 1)}
+                              className={`px-5 py-3 rounded-full font-semibold transition-all
                     ${
-                      moduleIndex ===
-                      selectedProject.details.modules.length - 1
+                      moduleIndex === selectedProject.details.modules.length - 1
                         ? "bg-gray-100 text-gray-400 cursor-not-allowed"
                         : "bg-[#ff8a0c] text-white hover:scale-105"
                     }`}
-                  >
-                    Next →
-                  </button>
-                </div>
-              </div>
+                            >
+                              Next →
+                            </button>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </motion.div>
+              </motion.div>
             )}
-          </div>
-        </div>
-      </motion.div>
-    </motion.div>
-  )}
-</AnimatePresence>
+          </AnimatePresence>
         </section>
 
         <section

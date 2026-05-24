@@ -136,3 +136,22 @@
 .animate-spin-slow {
   animation: spin-slow 14s linear infinite;
 }
+
+.marquee {
+  width: max-content;
+  animation: scroll 15s linear infinite;
+}
+
+.marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
