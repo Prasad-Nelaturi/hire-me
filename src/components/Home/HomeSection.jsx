@@ -121,6 +121,7 @@ export default function HeroSection() {
   const [selectedProject, setSelectedProject] = useState(null);
 
   const images = [
+    "./images/pr5.png",
     "./images/pr1.png",
     "./images/pr2.png",
     "./images/pr3.png",
@@ -128,16 +129,17 @@ export default function HeroSection() {
   ];
 
   useEffect(() => {
-    images.forEach((_, i) => {
-      setTimeout(() => {
-        setActiveIndex(i);
-      }, i * 100000);
-    });
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % images.length);
+    }, 5000);
+
     AOS.init({
       duration: 1000,
       once: false,
     });
-  }, [images]);
+
+    return () => clearInterval(interval);
+  }, []);
 
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -628,7 +630,7 @@ As a backend & full-stack developer, I built secure modules, dashboards, API int
       image:
         "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800&h=600&fit=crop",
       gradient: "from-amber-600 to-orange-600",
-      website: "https://thedsinteriors.com/",
+      website: "https://dsignerstudiointeriors.com/",
       details: {
         description: `D S Interiors is a premier interior design studio based in Hyderabad, specializing in residential and commercial spaces since 2012. The studio believes that great design transforms not just spaces, but lives.
 
@@ -735,11 +737,11 @@ As a full-stack developer for this project, I built a complete, responsive websi
 
   return (
     <>
+      {/* NAVBAR */}
       <nav className="px-[5%] w-full bg-[#16151b] text-white py-3 sticky top-0 z-50">
         <div className="flex items-center justify-between">
           {/* LOGO */}
           <a href="#home" className="flex items-center gap-2 sm:gap-3 shrink-0">
-            {/* Logo Image */}
             <div className="relative flex-shrink-0 bg-white/10 backdrop-blur-sm rounded-full p-1 border border-white/20 shadow-md">
               <img
                 src="https://images.scalebranding.com/minimal-pn-letter-mark-logo-e244d895-da3b-457b-b00b-b31da63ffa2b.png"
@@ -753,12 +755,10 @@ As a full-stack developer for this project, I built a complete, responsive websi
               />
             </div>
 
-            {/* Text */}
             <div className="leading-tight min-w-0">
               <h1 className="text-base sm:text-lg md:text-xl font-extrabold tracking-wide text-white whitespace-nowrap">
                 HIRE ME
               </h1>
-
               <span className="block text-[9px] sm:text-[11px] md:text-xs text-[#ff8a0c] font-semibold tracking-wide truncate">
                 Prasad Nelaturi
               </span>
@@ -766,32 +766,21 @@ As a full-stack developer for this project, I built a complete, responsive websi
           </a>
 
           {/* DESKTOP MENU */}
-          <div className="hidden md:flex items-center gap-10 text-20px]">
-            <a href="#aboutme" className="hover:text-violet-600">
-              About Me
-            </a>
-            <a href="#tech-stach" className="hover:text-violet-600">
-              TechStach
-            </a>
-            <a href="#tools" className="hover:text-violet-600">
-              Tools
-            </a>
-            <a href="#experience" className="hover:text-violet-600">
-              Experience
-            </a>
-            <a href="#projects" className="hover:text-violet-600">
-              Projects
-            </a>
+          <div className="hidden md:flex items-center gap-10 text-[20px]">
+            <a href="#aboutme" className="hover:text-violet-600 transition-colors">About Me</a>
+            <a href="#tech-stach" className="hover:text-violet-600 transition-colors">TechStach</a>
+            <a href="#tools" className="hover:text-violet-600 transition-colors">Tools</a>
+            <a href="#experience" className="hover:text-violet-600 transition-colors">Experience</a>
+            <a href="#projects" className="hover:text-violet-600 transition-colors">Projects</a>
             <div className="flex items-center gap-6">
-              <a href="#contact-me" className="hover:text-violet-600">
+              <a href="#contact-me" className="hover:text-violet-600 transition-colors">
                 <i className="bi bi-telephone-fill text-lg"></i>
               </a>
-
               <a
                 href="https://wa.me/919652593606"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-violet-600"
+                className="hover:text-violet-600 transition-colors"
               >
                 <i className="bi bi-whatsapp text-lg"></i>
               </a>
@@ -800,67 +789,88 @@ As a full-stack developer for this project, I built a complete, responsive websi
 
           {/* MOBILE MENU BUTTON */}
           <button
-            className="md:hidden flex items-center justify-center"
+            aria-label="Toggle menu"
+            className="md:hidden relative w-11 h-11 flex flex-col items-center justify-center gap-[6px] rounded-full bg-white/5 border border-white/10 active:scale-95 transition-transform"
             onClick={() => setOpen(!open)}
           >
-            {open ? (
-              <i className="bi bi-x-lg text-2xl"></i>
-            ) : (
-              <i className="bi bi-list text-3xl"></i>
-            )}
+            <span
+              className={`block h-[2px] w-6 bg-white rounded-full transition-all duration-300 ${open ? "rotate-45 translate-y-[8px] bg-[#ff8a0c]" : ""
+                }`}
+            />
+            <span
+              className={`block h-[2px] w-6 bg-white rounded-full transition-all duration-300 ${open ? "opacity-0 scale-x-0" : ""
+                }`}
+            />
+            <span
+              className={`block h-[2px] w-6 bg-white rounded-full transition-all duration-300 ${open ? "-rotate-45 -translate-y-[8px] bg-[#ff8a0c]" : ""
+                }`}
+            />
           </button>
         </div>
+      </nav>
 
-        {/* MOBILE MENU */}
-        <div
-          className={`
-          md:hidden rounded-2xl flex flex-col gap-5 px-4 overflow-hidden border-t border-gray-800
-          transition-all duration-300 ease-in-out
-          ${open ? "max-h-full py-5 opacity-100" : "max-h-0 py-0 opacity-0"}
-        `}
+      {/* MOBILE FULL-SCREEN MENU — rendered OUTSIDE the nav so nothing traps it */}
+      <div
+        className={`
+    md:hidden fixed inset-0 z-[9999]
+    bg-gradient-to-b from-[#16151b] via-[#1a1a24] to-[#0f0e14]
+    transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]
+    ${open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}
+  `}
+      >
+        {/* Decorative glows */}
+        <div className="absolute top-20 -left-20 w-72 h-72 bg-violet-600/30 rounded-full blur-[120px]" />
+        <div className="absolute bottom-10 -right-20 w-72 h-72 bg-[#ff8a0c]/20 rounded-full blur-[120px]" />
+
+        {/* Close (X) button — fixed at top-right */}
+        <button
+          aria-label="Close menu"
+          onClick={() => setOpen(false)}
+          className="absolute top-5 right-5 z-[1000] w-11 h-11 flex items-center justify-center rounded-full bg-white/5 border border-white/10 text-white active:scale-95 transition-transform"
         >
-          <a
-            href="#aboutme"
-            className="hover:text-gray-300"
-            onClick={() => setOpen(false)}
-          >
-            About Me
-          </a>
+          <i className="bi bi-x-lg text-xl"></i>
+        </button>
 
-          <a
-            href="#tech-stach"
-            className="hover:text-gray-300"
-            onClick={() => setOpen(false)}
-          >
-            TechStach
-          </a>
+        <div className="relative h-full flex flex-col justify-center px-8 pt-24 pb-10">
+          <ul className="flex flex-col gap-2">
+            {[
+              { label: "About Me", href: "#aboutme" },
+              { label: "TechStach", href: "#tech-stach" },
+              { label: "Tools", href: "#tools" },
+              { label: "Experience", href: "#experience" },
+              { label: "Projects", href: "#projects" },
+            ].map((item, i) => (
+              <li
+                key={item.href}
+                style={{ transitionDelay: open ? `${100 + i * 70}ms` : "0ms" }}
+                className={`transform transition-all duration-500 ease-out ${open ? "translate-x-0 opacity-100" : "-translate-x-8 opacity-0"
+                  }`}
+              >
+                <a
+                  href={item.href}
+                  onClick={() => setOpen(false)}
+                  className="group flex items-center justify-between py-4 border-b border-white/10"
+                >
+                  <span className="text-3xl sm:text-4xl font-bold text-white/90 group-hover:text-[#ff8a0c] transition-colors">
+                    {item.label}
+                  </span>
+                  <span className="text-2xl text-white/30 group-hover:text-[#ff8a0c] group-hover:translate-x-1 transition-all">
+                    →
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
 
-          <a
-            href="#tools"
-            className="hover:text-gray-300"
-            onClick={() => setOpen(false)}
+          <div
+            style={{ transitionDelay: open ? "500ms" : "0ms" }}
+            className={`mt-10 flex items-center gap-5 transform transition-all duration-500 ${open ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
+              }`}
           >
-            Tools
-          </a>
-          <a
-            href="#experience"
-            className="hover:text-gray-300"
-            onClick={() => setOpen(false)}
-          >
-            Experience
-          </a>
-          <a
-            href="#projects"
-            className="hover:text-gray-300"
-            onClick={() => setOpen(false)}
-          >
-            Projects
-          </a>
-          <div className="flex gap-6 pt-2 text-gray-400">
             <a
               href="tel:+919652593606"
-              className="hover:text-gray-300"
               onClick={() => setOpen(false)}
+              className="w-12 h-12 flex items-center justify-center rounded-full bg-white/5 border border-white/10 text-white hover:bg-[#ff8a0c] hover:border-[#ff8a0c] transition-all"
             >
               <i className="bi bi-telephone-fill text-lg"></i>
             </a>
@@ -868,17 +878,33 @@ As a full-stack developer for this project, I built a complete, responsive websi
               href="https://wa.me/919652593606"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-violet-600"
+              onClick={() => setOpen(false)}
+              className="w-12 h-12 flex items-center justify-center rounded-full bg-white/5 border border-white/10 text-white hover:bg-[#25D366] hover:border-[#25D366] transition-all"
             >
               <i className="bi bi-whatsapp text-lg"></i>
             </a>
+            <a
+              href="#contact-me"
+              onClick={() => setOpen(false)}
+              className="w-12 h-12 flex items-center justify-center rounded-full bg-white/5 border border-white/10 text-white hover:bg-violet-600 hover:border-violet-600 transition-all"
+            >
+              <i className="bi bi-envelope-fill text-lg"></i>
+            </a>
           </div>
+
+          <p
+            style={{ transitionDelay: open ? "600ms" : "0ms" }}
+            className={`mt-8 text-xs text-white/40 tracking-widest uppercase transform transition-all duration-500 ${open ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
+              }`}
+          >
+            Let's build something great ✦
+          </p>
         </div>
-      </nav>
+      </div>
 
       <section className="relative w-full overflow-hidden bg-[#16151b] text-white px-4 md:px-10">
         {/* MAIN CONTENT */}
-        <div id="home" className="relative z-10 text-center space-y-4 py-[8%]">
+        <section id="home" className="relative z-10 text-center scroll-mt-24">
           {/* Tagline */}
           <p className="text-[#ff8a0c] text-lg md:text-xl">
             Let’s Build Modern Web Experiences Together
@@ -932,7 +958,7 @@ As a full-stack developer for this project, I built a complete, responsive websi
               </svg>
             </span>
           </div>
-        </div>
+        </section>
 
         <section id="aboutme" className="px-[5%] my-20 py-20">
           <div
@@ -1454,7 +1480,7 @@ As a full-stack developer for this project, I built a complete, responsive websi
         </section>
 
         <section id="experience" className="mx-auto px-4 pt-28">
-          <div className="px-4 grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-8">
             {/* <!-- Column 1 --> */}
             <div>
               <h2 className="text-4xl md:text-7xl font-bold leading-tight mb-8">
@@ -1537,7 +1563,7 @@ As a full-stack developer for this project, I built a complete, responsive websi
         >
           {/* Animated Background Elements */}
           <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute w-[500px] h-[500px] bg-purple-600/20 rounded-full blur-3xl -top-1 -left-1/2 animate-pulse"></div>
+            <div className="absolute w-[500px] h-[500px] bg-purple-600/20 rounded-full blur-3xl top-[100px] -left-1/2 animate-pulse"></div>
             <div className="absolute w-[500px] h-[500px] bg-pink-600/20 rounded-full blur-3xl -bottom-1 -right-1/2 animate-pulse delay-1000"></div>
             <div className="absolute w-[300px] h-[300px] bg-blue-600/20 rounded-full blur-3xl top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
           </div>
@@ -1581,7 +1607,7 @@ As a full-stack developer for this project, I built a complete, responsive websi
             >
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-violet-600 to-violet-600 rounded-full blur-xl opacity-70 group-hover:opacity-100 transition-opacity"></div>
-                <div className="relative flex items-center gap-3 px-6 py-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-full hover:bg-white/20 transition-all cursor-pointer">
+                <div className="relative flex items-center gap-3 px-3 py-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full hover:bg-white/20 transition-all cursor-pointer">
                   <Sparkles className="w-5 h-5 text-orange-400" />
                   <span className="text-white font-semibold text-sm">
                     Contact Me
@@ -1592,7 +1618,7 @@ As a full-stack developer for this project, I built a complete, responsive websi
             </motion.a>
 
             {/* Projects Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {cards.map((card, index) => (
                 <motion.div
                   key={card.id}
@@ -1796,11 +1822,10 @@ As a full-stack developer for this project, I built a complete, responsive websi
                               disabled={moduleIndex === 0}
                               onClick={() => setModuleIndex(moduleIndex - 1)}
                               className={`px-5 py-3 rounded-full font-semibold transition-all
-                    ${
-                      moduleIndex === 0
-                        ? "bg-gray-100 text-gray-400 cursor-not-allowed"
-                        : "bg-gray-900 text-white hover:scale-105"
-                    }`}
+                    ${moduleIndex === 0
+                                  ? "bg-gray-100 text-gray-400 cursor-not-allowed"
+                                  : "bg-gray-900 text-white hover:scale-105"
+                                }`}
                             >
                               ← Previous
                             </button>
@@ -1812,11 +1837,10 @@ As a full-stack developer for this project, I built a complete, responsive websi
                               }
                               onClick={() => setModuleIndex(moduleIndex + 1)}
                               className={`px-5 py-3 rounded-full font-semibold transition-all
-                    ${
-                      moduleIndex === selectedProject.details.modules.length - 1
-                        ? "bg-gray-100 text-gray-400 cursor-not-allowed"
-                        : "bg-[#ff8a0c] text-white hover:scale-105"
-                    }`}
+                    ${moduleIndex === selectedProject.details.modules.length - 1
+                                  ? "bg-gray-100 text-gray-400 cursor-not-allowed"
+                                  : "bg-[#ff8a0c] text-white hover:scale-105"
+                                }`}
                             >
                               Next →
                             </button>
@@ -1833,14 +1857,14 @@ As a full-stack developer for this project, I built a complete, responsive websi
 
         <section
           id="contact-me"
-          className="relative w-full overflow-hidden bg-[#16151b] text-white px-4 md:px-10 py-10"
+          className="relative w-full overflow-hidden bg-[#16151b] text-white px-4 md:px-10 py-4"
         >
           <div id="contactservice" className="max-w-7xl mx-auto my-16">
-            <div className="p-6 md:p-10" data-aos="fade-up">
+            <div className="gap-2p-6 md:p-10" data-aos="fade-up">
               {/* vertical text button */}
               <a
                 href="mailto:prasadnelaturi333@gmail.com"
-                className="absolute left-[15%] z-[3]
+                className="absolute left-[12%] z-[3]
     flex items-center justify-center cursor-pointer select-none"
               >
                 <i className="bi bi-envelope-fill text-3xl hover:text-violet-600"></i>
@@ -2007,7 +2031,7 @@ As a full-stack developer for this project, I built a complete, responsive websi
           </a>
 
           {/* FOOTER LINKS */}
-          <div className="flex flex-wrap items-center gap-6 md:gap-10 text-sm">
+          <div className="flex flex-wrap items-center gap-4 md:gap-10 text-sm">
             <a href="#aboutme" className="hover:text-violet-600">
               About Me
             </a>
@@ -2048,7 +2072,7 @@ As a full-stack developer for this project, I built a complete, responsive websi
         </div>
 
         {/* COPYRIGHT OR EXTRA INFO */}
-        <p className="text-center text-gray-500 text-lg mt-4">
+        <p className="text-center text-gray-500 text-xm mt-4">
           © {new Date().getFullYear()}{" "}
           <span className="text-center text-[#ff8a0c]">Prasad Nelaturi</span>.
           All rights reserved.
